@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Tarea</title>
+</head>
+<body>
+    <h1>Editar Tarea</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Título:</label>
+        <input type="text" name="title" value="{{ task.title }}" required>
+        <br>
+        <label>Descripción:</label>
+        <textarea name="description">{{ task.description }}</textarea>
+        <br>
+        <label>Completada:</label>
+        <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %}>
+        <br>
+        <button type="submit">Guardar cambios</button>
+    </form>
+</body>
+</html>
